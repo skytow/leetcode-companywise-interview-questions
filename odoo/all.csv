@@ -1,6 +1,4 @@
 ID,URL,Title,Difficulty,Acceptance %,Frequency %
-20,https://leetcode.com/problems/valid-parentheses,Valid Parentheses,Easy,42.5%,100.0%
-150,https://leetcode.com/problems/evaluate-reverse-polish-notation,Evaluate Reverse Polish Notation,Medium,55.2%,75.0%
-155,https://leetcode.com/problems/min-stack,Min Stack,Medium,56.6%,100.0%
-344,https://leetcode.com/problems/reverse-string,Reverse String,Easy,79.8%,75.0%
-888,https://leetcode.com/problems/fair-candy-swap,Fair Candy Swap,Easy,63.4%,75.0%
+20,https://leetcode.com/problems/valid-parentheses,Valid Parentheses,Easy,44.5%,100.0%
+155,https://leetcode.com/problems/min-stack,Min Stack,Medium,58.4%,87.5%
+169,https://leetcode.com/problems/majority-element,Majority Element,Easy,66.4%,87.5%

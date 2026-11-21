@@ -1,4 +1,5 @@
 ID,URL,Title,Difficulty,Acceptance %,Frequency %
-71,https://leetcode.com/problems/simplify-path,Simplify Path,Medium,48.1%,100.0%
-359,https://leetcode.com/problems/logger-rate-limiter,Logger Rate Limiter,Easy,76.6%,75.0%
-124,https://leetcode.com/problems/binary-tree-maximum-path-sum,Binary Tree Maximum Path Sum,Hard,41.3%,62.5%
+71,https://leetcode.com/problems/simplify-path,Simplify Path,Medium,50.9%,100.0%
+359,https://leetcode.com/problems/logger-rate-limiter,Logger Rate Limiter,Easy,76.9%,62.5%
+56,https://leetcode.com/problems/merge-intervals,Merge Intervals,Medium,52.3%,75.0%
+243,https://leetcode.com/problems/shortest-word-distance,Shortest Word Distance,Easy,66.4%,75.0%
