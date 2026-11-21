@@ -1,13 +1,13 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import model.ProblemStatement;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.openqa.selenium.*;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.FileWriter;
 import java.nio.file.Files;
@@ -19,17 +19,17 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Slf4j
 public class Scraper {
-    private static final String USERNAME = ""; // Provide your LeetCode username/email
-    private static final String PASSWORD = ""; // Provide your LeetCode password
+    private static final Logger log = LoggerFactory.getLogger(Scraper.class);
+    private static final String USERNAME = "acepci35"; // Provide your LeetCode username/email
+    private static final String PASSWORD = "Elc!d38Pr0m$"; // Provide your LeetCode password
     public static final int QUESTIONS_PAGE_WAIT_MILLIS = 5000;
     public static final int LOGIN_PAGE_WAIT_MILLIS = 30000;
     WebDriver driver;
 
     public void setup() throws InterruptedException {
-        WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
 
         driver.get("https://leetcode.com/accounts/login/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
@@ -81,7 +81,11 @@ public class Scraper {
         for (ProblemStatement problem : problems) {
             log.info("{}", problem);
         }
-        exportToCSV(problems, companyName, recency);
+        try {
+            exportToCSV(problems, companyName, recency);
+        } catch (Exception e) {
+            log.error("Error exporting to CSV", e);
+        }
     }
 
     private String extractCompanyNameWithRegex(String companyURL) {
@@ -227,8 +231,7 @@ public class Scraper {
         return problems;
     }
 
-    @SneakyThrows
-    private void exportToCSV(List<ProblemStatement> problems, String companyName, String recency) {
+    private void exportToCSV(List<ProblemStatement> problems, String companyName, String recency) throws Exception {
         // Create directory structure: companyName/recency/
         Path outputDir = Paths.get(companyName);
         if (!Files.exists(outputDir)) {
